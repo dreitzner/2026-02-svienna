@@ -1,0 +1,22 @@
+{
+  "name": "2026-02-svienna",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "pnpm --filter=!./packages dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreitzner/2026-02-svienna.git"
+  },
+  "author": "Domenik Reitzner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dreitzner/2026-02-svienna/issues"
+  },
+  "homepage": "https://github.com/dreitzner/2026-02-svienna#readme",
+  "type": "module",
+  "volta": {
+    "node": "24.13.1",
+    "pnpm": "10.30.0"
+  }
+}

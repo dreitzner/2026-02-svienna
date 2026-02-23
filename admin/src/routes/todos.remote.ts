@@ -14,6 +14,18 @@ TODOS[crypto.randomUUID()] = {
     done: true,
     title: 'create talk',
 }
+TODOS[crypto.randomUUID()] = {
+    done: false,
+    title: 'give talk',
+}
+TODOS[crypto.randomUUID()] = {
+    done: false,
+    title: 'talk with people about svelte',
+}
+TODOS[crypto.randomUUID()] = {
+    done: false,
+    title: 'eat good food',
+}
 
 export const getTodos = query(async () => TODOS);
 

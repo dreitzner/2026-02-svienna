@@ -9,14 +9,18 @@
 
 <section>
 	<h1>Admin area</h1>
-	<form {...createTodo} class=" rounded-2xl border-2 border-lime-300 p-4 shadow-2xl">
+	<form
+		{...createTodo}
+		class=" rounded-2xl border-2 border-lime-300 p-4 shadow-2xl"
+		autocomplete="off"
+	>
 		<h2 class="text-center text-2xl">What do you need to do?</h2>
-		<div class="flex">
+		<div class="flex ring-pink-700 ring-offset-2 focus-within:ring-1 rounded-xl">
 			<label>
 				<input
 					{...createTodo.fields.title.as('text')}
-					autocomplete="off"
-					class="rounded-l-xl border border-r-0 border-b-indigo-400 p-2"
+					data-form-type="other"
+					class="rounded-l-xl border border-r-0 border-b-indigo-400 p-2 outline-0"
 				/>
 			</label>
 			<button

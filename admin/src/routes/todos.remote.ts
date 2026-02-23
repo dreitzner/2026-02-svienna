@@ -7,8 +7,7 @@ const TODOS: {
 		title: string;
 		done: boolean;
 	};
-} = {
-};
+} = {};
 
 TODOS[crypto.randomUUID()] = {
     done: true,

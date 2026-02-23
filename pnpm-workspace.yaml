@@ -2,6 +2,7 @@ packages:
   # specify a package in a direct subdir of the root
   - 'admin'
   - 'frontend'
+  - 'slides'
   # all packages in direct subdirs of packages/
   - 'packages/*'
 onlyBuiltDependencies:

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
-	import github from '$lib/images/github.svg';
 	import logo from '$lib/images/svelte-logo.svg';
+	const { session }: { session?: string } = $props();
 </script>
 
 <header>
@@ -27,6 +27,11 @@
 	</nav>
 
 	<div class="corner">
+		{#if session}
+			<form action="/auth/login?/logout" method="post">
+				<button type="submit" class="p-1 text-2xl">⛓️‍💥</button>
+			</form>
+		{/if}
 	</div>
 </header>
 

@@ -1,8 +1,16 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
-	import { page } from '$app/state';
 	import github from '$lib/images/github.svg';
 	import logo from '$lib/images/svelte-logo.svg';
+	import type { Snippet } from 'svelte';
+	interface Props {
+		navItems: {
+			path: string;
+			label: string;
+		}[];
+		pathname: string;
+		children?: Snippet;
+	}
+	const { navItems, pathname, children }: Props = $props();
 </script>
 
 <header>
@@ -17,12 +25,11 @@
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
 		<ul>
-			<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
-				<a href={resolve('/')}>Home</a>
-			</li>
-			<li aria-current={page.url.pathname === '/admin-info' ? 'page' : undefined}>
-				<a href={resolve('/admin-info')}>Admin Info</a>
-			</li>
+			{#each navItems as navItem}
+				<li aria-current={pathname === navItem.path ? 'page' : undefined}>
+					<a href={navItem.path}>{navItem.label}</a>
+				</li>
+			{/each}
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
@@ -30,9 +37,13 @@
 	</nav>
 
 	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a>
+		{#if children}
+			{@render children()}
+		{:else}
+			<a href="https://github.com/sveltejs/kit">
+				<img src={github} alt="GitHub" />
+			</a>
+		{/if}
 	</div>
 </header>
 

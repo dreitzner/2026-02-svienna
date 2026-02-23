@@ -1,12 +1,24 @@
 <script lang="ts">
-	import Header from './Header.svelte';
 	import './layout.css';
+	import { Header } from 'ui';
+	import { page } from '$app/state';
 
 	let { children, data } = $props();
+	const navItems = [{ path: '/', label: 'Admin' }];
+	const pathname = $derived(page.url.pathname)
 </script>
 
 <div class="app">
-	<Header session={data.session} />
+	<Header {navItems} {pathname}>
+		{#snippet children()}
+			{#if data.session}
+				<form action="/auth/login?/logout" method="post">
+					<button type="submit" class="p-1 text-2xl">⛓️‍💥</button>
+				</form>
+			{/if}
+		{/snippet}
+	</Header>
+
 	<main>{@render children()}</main>
 </div>
 

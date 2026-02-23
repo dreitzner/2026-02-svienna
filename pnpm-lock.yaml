@@ -10,6 +10,9 @@ importers:
 
   admin:
     dependencies:
+      ui:
+        specifier: workspace:*
+        version: link:../packages/ui
       valibot:
         specifier: ^1.2.0
         version: 1.2.0(typescript@5.9.3)
@@ -82,6 +85,10 @@ importers:
         version: 7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.31.1)
 
   frontend:
+    dependencies:
+      ui:
+        specifier: workspace:*
+        version: link:../packages/ui
     devDependencies:
       '@eslint/compat':
         specifier: ^2.0.2

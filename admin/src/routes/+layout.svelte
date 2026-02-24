@@ -15,6 +15,8 @@
 				<form action="/auth/login?/logout" method="post">
 					<button type="submit" class="p-1 text-2xl">⛓️‍💥</button>
 				</form>
+			{:else}
+				<a href="/auth/login">🔐</a>
 			{/if}
 		{/snippet}
 	</Header>
